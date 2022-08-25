@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <style type="text/css">
+      body {color:purple;
+            background-color: #d8da3d}
+      #seccion1 {
+        font-size: 60px;
+        text-align: center;
+        background-image: url(https://cdn.pixabay.com/photo/2019/04/22/13/21/computer-4146579__340.jpg);
+        background-size: contain;
+      }
+      #proyectos {
+        display: grid;
+        grid-template-columns: auto auto;
+      } 
+      .proyecto img {
+        width: 50%;
+      }
+      </style>
+      
+  </head>
+    <body>
+      <section id="seccion1">
+        <h1>Bienvenido!</h1>
+      </section>
+      <section id="proyectos"></section>
+      
+      
+    </body>
+    <script>
+      const datos = [{ 
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiwhavnqKNeVQwHQbqoIspp3ymq7ZoDxupUQ&usqp=CAU',
+        desc: 'HTML'
+      },
+      {
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png',
+        desc: 'CSS'
+      },
+      {
+        img: 'https://live.staticflickr.com/7306/16407404782_8b9c57eab3_w.jpg',
+        desc: 'Javascript'
+      }]
+      console.log('hello world');
+      let proyectos = document.querySelector('#proyectos');
+      
+      proyectos.style.background ='red';
+      function dinamico(src, desc) {
+        let div= document.createElement("div");
+        let img= document.createElement("img");
+        img.src = src;
+        let p= document.createElement("p");
+        p.innerHTML =desc;
+        div.appendChild(img);
+        div.appendChild(p);
+        proyectos.appendChild(div);
+      }
+      datos.forEach(({img, desc}) => dinamico(img,desc));
+    </script>
+  
+</html>
